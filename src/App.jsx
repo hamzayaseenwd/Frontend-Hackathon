@@ -1,9 +1,14 @@
-import React from 'react'
-import Routerconfig from './config/router-config/Routerconfig'
+import { useState } from 'react'
+import './App.css'
+import RouterConfig from './config/react_router_dom/RouterConfig'
 
-const App = () => {
+function App() {
+  
+
   return (
-    <Routerconfig/>
+    <RouterConfig/>
+      
+    
   )
 }
 
