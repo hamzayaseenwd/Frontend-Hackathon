@@ -1,5 +1,10 @@
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { auth } from '../config/firebase'
+import Swal from 'sweetalert2'
+import Custom_Button from '../components/Custom_Button'
+import Custom_Input_Field from '../components/Custom_Input_Field'
 
 const Signup = () => {
   const navigate = useNavigate()
@@ -31,7 +36,6 @@ const Signup = () => {
     password.current.value = ''
   })
   .catch((error) => {
-    const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorMessage);
     Swal.fire("This Email already in used");
@@ -41,25 +45,39 @@ const Signup = () => {
 
 
 
-
-
-
   }
-  
 
   return (
-    <div>
-      <form 
-      onSubmit={signup_function} 
-      >
+    <div >
+      <form className='ml-[25%] mb-[25%] justify-center items-center justify-items-center border-black'
+      onSubmit={signup_function} >
 
-    <input type="text" placeholder='Enter Your First Name' ref={firstName}/>
+    {/* <input type="text" placeholder='Enter Your First Name' ref={firstName}/>
     <input type="text" placeholder='Enter Your Last Name' ref={lastName}/>
     <input type="email" placeholder='Enter Your Email Address' ref={email}/>
     <input type="password" placeholder='Enter Your Password' ref={password}/>
-    <input type="password" placeholder='Re-enter Your Password' ref={confirmPassword}/>
-    <button type="submit">Sign Up</button>
-
+    <input type="password" placeholder='Re-enter Your Password' ref={confirmPassword}/> */}
+    <Custom_Input_Field
+    type="text" placeholder='Enter Your First Name' ref={firstName}
+    />
+    <Custom_Input_Field
+    type="text" placeholder='Enter Your Last Name' ref={lastName}
+    />
+    <Custom_Input_Field
+    type="text" placeholder='Enter Your Email Address' ref={email}
+    />
+    <Custom_Input_Field
+    type="password" placeholder='Enter Your Password' ref={password}
+    />
+    <Custom_Input_Field
+    type="password" placeholder='Re-enter Your Password' ref={confirmPassword}
+    />
+    {/* <button type="submit">Sign Up</button> */}
+    
+    <Custom_Button
+    type="submit"
+    name= "Sign Up"
+    />
       </form>
     </div>
   )
