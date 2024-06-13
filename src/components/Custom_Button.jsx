@@ -5,7 +5,7 @@ const Custom_Button = (props) => {
     <div 
     // className="flex justify-center"
     >
-    <button className="btn btn-sm btn-wide glass btn-outline btn-accent">{props.name}</button>
+    <button className="btn btn-sm btn-wide glass content-center btn-outline btn-accent">{props.name}</button>
   </div>
   )
 }

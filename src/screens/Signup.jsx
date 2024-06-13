@@ -17,46 +17,46 @@ const Signup = () => {
 
   const signup_function =(event)=>{
     event.preventDefault();
-    createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
-  .then((userCredential) => {
-    // Signed up 
+    if (password.current.value === confirmPassword.current.value) {
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+    .then((userCredential) => {
+      // Signed up 
     const user = userCredential.user;
-    console.log(user.data , "Register sucessfully");
-    Swal.fire({
-      position: "top-center",
-      icon: "success",
-      title: "You are registered",
-      showConfirmButton: false,
-      timer: 1500
-    });
-    setTimeout(function(){
-      navigate('/login')
-    },2000)
-    email.current.value = ''
-    password.current.value = ''
-  })
-  .catch((error) => {
-    const errorMessage = error.message;
-    console.log(errorMessage);
-    Swal.fire("This Email already in used");
-    email.value = ''
-    password.value = ''
-  });
+  console.log(user.data , "Register sucessfully");
+Swal.fire({
+  position: "top-center",
+icon: "success",
+title: "You are registered",
+showConfirmButton: false,
+timer: 1500
+});
+setTimeout(function(){
+  navigate('/login')
+},2000)
+email.current.value = ''
+password.current.value = ''
+})
+.catch((error) => {
+  const errorMessage = error.message;
+console.log(errorMessage);
+Swal.fire("This Email already in used");
+email.value = ''
+password.value = ''
+});
+}else{
+  Swal.fire("Password not match");
+}
 
 
 
   }
 
   return (
-    <div >
+    <div className='' >
       <form className='ml-[25%] mb-[25%] justify-center items-center justify-items-center border-black'
       onSubmit={signup_function} >
 
-    {/* <input type="text" placeholder='Enter Your First Name' ref={firstName}/>
-    <input type="text" placeholder='Enter Your Last Name' ref={lastName}/>
-    <input type="email" placeholder='Enter Your Email Address' ref={email}/>
-    <input type="password" placeholder='Enter Your Password' ref={password}/>
-    <input type="password" placeholder='Re-enter Your Password' ref={confirmPassword}/> */}
+
     <Custom_Input_Field
     type="text" placeholder='Enter Your First Name' ref={firstName}
     />
@@ -72,8 +72,7 @@ const Signup = () => {
     <Custom_Input_Field
     type="password" placeholder='Re-enter Your Password' ref={confirmPassword}
     />
-    {/* <button type="submit">Sign Up</button> */}
-    
+        
     <Custom_Button
     type="submit"
     name= "Sign Up"
