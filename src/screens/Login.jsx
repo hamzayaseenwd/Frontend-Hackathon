@@ -37,7 +37,7 @@ const Login = () => {
     const errorMessage = error.message;
     Swal.fire({
         icon: "error",
-        title: "Invalid Email Password"
+        title: "Invalid Email or Password"
       });
       
   })
@@ -45,8 +45,9 @@ const Login = () => {
 }
   
   return (
-    <div><div className='' >
-    <form className='ml-[25%] mb-[25%] justify-center items-center justify-items-center border-black'
+    <div>
+      <div className='flex justify-center ' >
+    <form className='content-center'
     onSubmit={signIn_function} >
 
 
