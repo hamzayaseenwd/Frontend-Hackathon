@@ -53,7 +53,7 @@ password.value = ''
 
   return (
     <div className='' >
-      <form className='ml-[25%] mb-[25%] justify-center items-center justify-items-center border-black'
+      <form className='ml-[40%] mr-[40%]'
       onSubmit={signup_function} >
 
 
